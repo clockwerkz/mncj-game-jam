@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Settings to Tweak for Gameplay Feel")]
     public float moveSpeed = 3;
     public float jumpForce = 20;
+    public float normalGravity = 5f;
+    public float flightGravity = 3f;
+
+    [Space(10.0f)]
+    [Header("Ground Detection Settings")]
     public Transform feet;
-    public LayerMask moonLight;
+    public LayerMask groundLayer;
 
     private Rigidbody2D _rigidBody2d;
     private float _mx;
+    private bool _inMoonLight = false;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidBody2d = GetComponent<Rigidbody2D>();
+        _rigidBody2d.gravityScale = normalGravity;
     }
 
     private void FixedUpdate()
@@ -28,5 +36,40 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 movement = new Vector2(_mx * moveSpeed, _rigidBody2d.velocity.y);
         _rigidBody2d.velocity = movement;
+
+        if (Input.GetButtonDown("Jump") && (IsGrounded() || _inMoonLight))
+        {
+            Jump();
+        }
+    }
+
+    bool IsGrounded()
+    {
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.2f, groundLayer);
+        return groundCheck != null;
+    }
+
+    void Jump()
+    {
+        Vector2 movement = new Vector2(_rigidBody2d.velocity.x, jumpForce);
+        _rigidBody2d.velocity = movement;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "MoonBeam")
+        {
+            _inMoonLight = true;
+            _rigidBody2d.gravityScale = flightGravity;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "MoonBeam")
+        {
+            _inMoonLight = false;
+            _rigidBody2d.gravityScale = normalGravity;
+        }
     }
 }
