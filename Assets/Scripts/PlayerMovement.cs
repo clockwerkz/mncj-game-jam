@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     private Rigidbody2D _rigidBody2d;
+    private SpriteRenderer _spriteRenderer;
     private float _mx;
     private bool _inMoonLight = false;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rigidBody2d = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidBody2d.gravityScale = normalGravity;
     }
 
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "MoonBeam")
         {
             _inMoonLight = true;
+            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.5f);
             _rigidBody2d.gravityScale = flightGravity;
         }
     }
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "MoonBeam")
         {
             _inMoonLight = false;
+            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1.0f);
             _rigidBody2d.gravityScale = normalGravity;
         }
     }
