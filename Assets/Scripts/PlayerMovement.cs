@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(_mx * moveSpeed, _rigidBody2d.velocity.y);
         _rigidBody2d.velocity = movement;
 
-        if (Input.GetButtonDown("Jump") && (IsGrounded() || _inMoonLight))
+        if (Input.GetButtonDown("Jump") &&  _inMoonLight)
         {
             Jump();
         }
