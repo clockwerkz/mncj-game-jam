@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 331829021}
   - component: {fileID: 331829023}
   - component: {fileID: 331829022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -216,10 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387852523cc1d3d4899d30706d98bae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  jumpForce: 10
+  moveSpeedPirateHori: 5
+  moveSpeedBirdHori: 8
+  moveSpeedBirdVert: 8
+  jumpForce: 5
   normalGravity: 5
-  flightGravity: 1
+  flightGravity: 0
   intoMoonDelaySeconds: 0.5
   outOfMoonDelaySeconds: 1
   feet: {fileID: 478888889}
@@ -444,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 478888889}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +478,7 @@ GameObject:
   - component: {fileID: 502374393}
   - component: {fileID: 502374395}
   - component: {fileID: 502374394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Transformation Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5517,8 +5519,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.3132687
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.904394
+      value: 11.13
       objectReference: {fileID: 0}
     - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
         type: 3}
@@ -5726,6 +5733,90 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1710278522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4532495375632054077, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform_test (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532495375632054077, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532495375632054077, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399116898695777365, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463145001062756293, guid: 90303dbdba1f7364eaecf950f6e4fdaf,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90303dbdba1f7364eaecf950f6e4fdaf, type: 3}
 --- !u!1 &1987308009
 GameObject:
   m_ObjectHideFlags: 0
@@ -5737,7 +5828,7 @@ GameObject:
   - component: {fileID: 1987308012}
   - component: {fileID: 1987308011}
   - component: {fileID: 1987308010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: MoonBeam
   m_Icon: {fileID: 0}
@@ -5809,10 +5900,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4,
     type: 3}
-  m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
+  m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0.14117648}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5830,8 +5921,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987308009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.91, y: -0.05, z: 0}
-  m_LocalScale: {x: 3.8, y: 8.99, z: 1}
+  m_LocalPosition: {x: 5.9852, y: 4.7395, z: 0}
+  m_LocalScale: {x: 5.95042, y: 18.56845, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
