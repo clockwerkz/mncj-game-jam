@@ -12,7 +12,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Settings to Tweak for Gameplay Feel")]
-    public float moveSpeed;
+    public float moveSpeedPirateHori;
+    public float moveSpeedBirdHori;
+    public float moveSpeedBirdVert;
     public float jumpForce;
     public float normalGravity;
     public float flightGravity;
@@ -26,10 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
     // Components
     private Rigidbody2D _rigidBody2d;
+    private Collider2D _collider2d;
     private SpriteRenderer _spriteRenderer;
 
-    // Horizontal movement input
+    // Movement inputs
     private float _mx;
+    private float _my;
 
     // Keep track of whether the player is inside a moonbeam
     private bool _inMoonLight = false;
@@ -38,26 +42,45 @@ public class PlayerMovement : MonoBehaviour
     private float _intoMoonCounter;
     private float _outOfMoonCounter;
 
+    // Particles for going in/out of moonbeams
+    private ParticleSystem _transformationParticles;
+    private ParticleSystem.EmissionModule _transformationEmission;
+
     // Keep track of Player transformations
     private enum PlayerTransform
     {
         Pirate,
         Bird
     }
-    private PlayerTransform _curTransform = PlayerTransform.Pirate;
-    private PlayerTransform _prevTransform = PlayerTransform.Pirate;
+    private PlayerTransform _playerTransform;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidBody2d = GetComponent<Rigidbody2D>();
+        _collider2d = GetComponent<Collider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _transformationParticles = GetComponentInChildren<ParticleSystem>();
+        _transformationEmission = _transformationParticles.emission;
+
+        // Set gravity and player is pirate
         _rigidBody2d.gravityScale = normalGravity;
+        _playerTransform = PlayerTransform.Pirate;
+
+        // Moonbeam layer does not collide with other layers except Player
+        Physics2D.IgnoreLayerCollision(7, 0);
+        Physics2D.IgnoreLayerCollision(7, 1);
+        Physics2D.IgnoreLayerCollision(7, 2);
+        Physics2D.IgnoreLayerCollision(7, 3);
+        Physics2D.IgnoreLayerCollision(7, 4);
+        Physics2D.IgnoreLayerCollision(7, 5);
+        Physics2D.IgnoreLayerCollision(7, 6);
     }
 
     private void FixedUpdate()
     {
         _mx = Input.GetAxisRaw("Horizontal");
+        _my = Input.GetAxisRaw("Vertical");
     }
 
     // Update is called once per frame
@@ -73,51 +96,69 @@ public class PlayerMovement : MonoBehaviour
             _outOfMoonCounter -= Time.deltaTime;
         }
 
+        // Configure transformation particles
+        if (_playerTransform == PlayerTransform.Bird && !_inMoonLight)
+        {
+            _transformationEmission.rateOverTime = 50f;
+        }
+        else
+        {
+            _transformationEmission.rateOverTime = 0f;
+        }
+
         // Maybe transform
         MaybeTransform();
 
         // Calculate horizontal velocity
-        Vector2 movement = new Vector2(_mx * moveSpeed, _rigidBody2d.velocity.y);
-        _rigidBody2d.velocity = movement;
+        float moveSpeedHori = _playerTransform == PlayerTransform.Pirate ? moveSpeedPirateHori : moveSpeedBirdHori;
+        Vector2 movementHori = new Vector2(_mx * moveSpeedHori, _rigidBody2d.velocity.y);
+        _rigidBody2d.velocity = movementHori;
 
-        // Calculate jump
-        if (Input.GetButtonDown("Jump") && _curTransform == PlayerTransform.Bird)
+        // Calculate vertical bird movement
+        if (_playerTransform == PlayerTransform.Bird)
         {
-            Jump();
+            Vector2 movementVert = new Vector2(_rigidBody2d.velocity.x, _my * moveSpeedBirdVert);
+            _rigidBody2d.velocity = movementVert;
         }
-
-        // Update previous transform after everything else
-        _prevTransform = _curTransform;
     }
 
-    bool IsGrounded()
-    {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.2f, groundLayer);
-        return groundCheck != null;
-    }
+    //bool IsGrounded()
+    //{
+    //    Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.2f, groundLayer);
+    //    return groundCheck != null;
+    //}
 
-    void Jump()
-    {
-        Vector2 movement = new Vector2(_rigidBody2d.velocity.x, jumpForce);
-        _rigidBody2d.velocity = movement;
-    }
+    //void Jump()
+    //{
+    //    Vector2 movement = new Vector2(_rigidBody2d.velocity.x, jumpForce);
+    //    _rigidBody2d.velocity = movement;
+    //}
 
     void MaybeTransform()
     {
         // Stayed in moonbeam long enough to become a bird
-        if (_intoMoonCounter < 0 && _prevTransform == PlayerTransform.Pirate && _inMoonLight)
+        if (_intoMoonCounter < 0 && _playerTransform == PlayerTransform.Pirate && _inMoonLight)
         {
-            _curTransform = PlayerTransform.Bird;
+            _playerTransform = PlayerTransform.Bird;
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.5f);
             _rigidBody2d.gravityScale = flightGravity;
+
+            // Collisions off
+            gameObject.layer = 7;
+
+            // Stop moving
+            _rigidBody2d.velocity = new Vector2(_rigidBody2d.velocity.x, 0);
         }
 
         // Stayed out of moonbeam long enough to become a pirate
-        if (_outOfMoonCounter < 0 && _prevTransform == PlayerTransform.Bird && !_inMoonLight)
+        if (_outOfMoonCounter < 0 && _playerTransform == PlayerTransform.Bird && !_inMoonLight)
         {
-            _curTransform = PlayerTransform.Pirate;
+            _playerTransform = PlayerTransform.Pirate;
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1.0f);
             _rigidBody2d.gravityScale = normalGravity;
+
+            // Collisions on
+            gameObject.layer = 8;
         }
     }
 
