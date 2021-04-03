@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 859827250380299446}
   - component: {fileID: 859827250380299403}
   - component: {fileID: 859827250380299401}
-  - component: {fileID: 859827250380299400}
+  - component: {fileID: 331829021}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -106,7 +106,7 @@ MonoBehaviour:
   jumpForce: 5
   normalGravity: 5
   flightGravity: 0
-  intoMoonDelaySeconds: 0.5
+  intoMoonDelaySeconds: 0
   outOfMoonDelaySeconds: 1
   feet: {fileID: 859827250534699055}
   groundLayer:
@@ -133,8 +133,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &859827250380299400
-BoxCollider2D:
+--- !u!70 &331829021
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,18 +147,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Direction: 0
 --- !u!1 &859827250534699054
 GameObject:
   m_ObjectHideFlags: 0

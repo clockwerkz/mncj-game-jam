@@ -3419,11 +3419,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 859827250380299403, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
-        type: 3}
-      propertyPath: intoMoonDelaySeconds
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 859827250380299447, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
         type: 3}
       propertyPath: m_RootOrder
