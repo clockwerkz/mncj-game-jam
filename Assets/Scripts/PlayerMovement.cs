@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     void MaybeTransform()
     {
         // Stayed in moonbeam long enough to become a bird
-        if (_intoMoonCounter < 0 && _playerTransform == PlayerTransform.Pirate && _inMoonLight)
+        if (_intoMoonCounter <= 0 && _playerTransform == PlayerTransform.Pirate && _inMoonLight)
         {
             _playerTransform = PlayerTransform.Bird;
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.5f);
@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Stayed out of moonbeam long enough to become a pirate
-        if (_outOfMoonCounter < 0 && _playerTransform == PlayerTransform.Bird && !_inMoonLight)
+        if (_outOfMoonCounter <= 0 && _playerTransform == PlayerTransform.Bird && !_inMoonLight)
         {
             _playerTransform = PlayerTransform.Pirate;
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1.0f);
