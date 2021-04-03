@@ -66,15 +66,6 @@ public class PlayerMovement : MonoBehaviour
         // Set gravity and player is pirate
         _rigidBody2d.gravityScale = normalGravity;
         _playerTransform = PlayerTransform.Pirate;
-
-        // Moonbeam layer does not collide with other layers except Player
-        Physics2D.IgnoreLayerCollision(7, 0);
-        Physics2D.IgnoreLayerCollision(7, 1);
-        Physics2D.IgnoreLayerCollision(7, 2);
-        Physics2D.IgnoreLayerCollision(7, 3);
-        Physics2D.IgnoreLayerCollision(7, 4);
-        Physics2D.IgnoreLayerCollision(7, 5);
-        Physics2D.IgnoreLayerCollision(7, 6);
     }
 
     private void FixedUpdate()
@@ -144,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
             _rigidBody2d.gravityScale = flightGravity;
 
             // Collisions off
-            gameObject.layer = 7;
+            gameObject.layer = 9;
 
             // Stop moving
             _rigidBody2d.velocity = new Vector2(_rigidBody2d.velocity.x, 0);
