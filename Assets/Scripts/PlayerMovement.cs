@@ -66,15 +66,6 @@ public class PlayerMovement : MonoBehaviour
         // Set gravity and player is pirate
         _rigidBody2d.gravityScale = normalGravity;
         _playerTransform = PlayerTransform.Pirate;
-
-        // Moonbeam layer does not collide with other layers except Player
-        Physics2D.IgnoreLayerCollision(7, 0);
-        Physics2D.IgnoreLayerCollision(7, 1);
-        Physics2D.IgnoreLayerCollision(7, 2);
-        Physics2D.IgnoreLayerCollision(7, 3);
-        Physics2D.IgnoreLayerCollision(7, 4);
-        Physics2D.IgnoreLayerCollision(7, 5);
-        Physics2D.IgnoreLayerCollision(7, 6);
     }
 
     private void FixedUpdate()
@@ -137,21 +128,21 @@ public class PlayerMovement : MonoBehaviour
     void MaybeTransform()
     {
         // Stayed in moonbeam long enough to become a bird
-        if (_intoMoonCounter < 0 && _playerTransform == PlayerTransform.Pirate && _inMoonLight)
+        if (_intoMoonCounter <= 0 && _playerTransform == PlayerTransform.Pirate && _inMoonLight)
         {
             _playerTransform = PlayerTransform.Bird;
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.5f);
             _rigidBody2d.gravityScale = flightGravity;
 
             // Collisions off
-            gameObject.layer = 7;
+            gameObject.layer = 9;
 
             // Stop moving
             _rigidBody2d.velocity = new Vector2(_rigidBody2d.velocity.x, 0);
         }
 
         // Stayed out of moonbeam long enough to become a pirate
-        if (_outOfMoonCounter < 0 && _playerTransform == PlayerTransform.Bird && !_inMoonLight)
+        if (_outOfMoonCounter <= 0 && _playerTransform == PlayerTransform.Bird && !_inMoonLight)
         {
             _playerTransform = PlayerTransform.Pirate;
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1.0f);

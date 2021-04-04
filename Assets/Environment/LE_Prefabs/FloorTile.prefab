@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 25840373561153073}
   - component: {fileID: 1468500394190200326}
   - component: {fileID: 8090103775523638987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorTile
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c3b8914f5fcd4724b99ab3bb61ce6d06,
+  m_Sprite: {fileID: 7677746386170045030, guid: cf8aec8ccf0be92449befd5488d7ef57,
     type: 3}
-  m_Color: {r: 0.2735849, g: 0.14262468, b: 0.01677644, a: 1}
+  m_Color: {r: 0.27058825, g: 0.44705883, b: 0.9254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,4 +109,4 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.02
