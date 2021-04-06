@@ -103,7 +103,7 @@ MonoBehaviour:
   moveSpeedPirateHori: 5
   moveSpeedBirdHori: 8
   moveSpeedBirdVert: 8
-  jumpForce: 5
+  jumpForce: 15
   normalGravity: 5
   flightGravity: 0
   intoMoonDelaySeconds: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   feet: {fileID: 859827250534699055}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
 --- !u!50 &859827250380299401
 Rigidbody2D:
   serializedVersion: 4
