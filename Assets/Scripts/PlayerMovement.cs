@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float flightGravity;
     public float intoMoonDelaySeconds;
     public float outOfMoonDelaySeconds;
+   
 
     [Space(10.0f)]
     [Header("Ground Detection Settings")]
@@ -97,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
             _transformationEmission.rateOverTime = 0f;
         }
 
+     
         // Maybe transform
         MaybeTransform();
 
