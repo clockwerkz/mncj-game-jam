@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float flightGravity;
     public float intoMoonDelaySeconds;
     public float outOfMoonDelaySeconds;
+   
 
     [Space(10.0f)]
     [Header("Ground Detection Settings")]
@@ -97,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
             _transformationEmission.rateOverTime = 0f;
         }
 
+     
         // Maybe transform
         MaybeTransform();
 
@@ -105,25 +107,29 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementHori = new Vector2(_mx * moveSpeedHori, _rigidBody2d.velocity.y);
         _rigidBody2d.velocity = movementHori;
 
-        // Calculate vertical bird movement
+        // Calculate vertical movement (fly if bird and jump if pirate)
         if (_playerTransform == PlayerTransform.Bird)
         {
             Vector2 movementVert = new Vector2(_rigidBody2d.velocity.x, _my * moveSpeedBirdVert);
             _rigidBody2d.velocity = movementVert;
         }
+        else if (_playerTransform == PlayerTransform.Pirate && Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            Jump();
+        }
     }
 
-    //bool IsGrounded()
-    //{
-    //    Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.2f, groundLayer);
-    //    return groundCheck != null;
-    //}
+    bool IsGrounded()
+    {
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.2f, groundLayer);
+        return groundCheck != null;
+    }
 
-    //void Jump()
-    //{
-    //    Vector2 movement = new Vector2(_rigidBody2d.velocity.x, jumpForce);
-    //    _rigidBody2d.velocity = movement;
-    //}
+    void Jump()
+    {
+        Vector2 movement = new Vector2(_rigidBody2d.velocity.x, jumpForce);
+        _rigidBody2d.velocity = movement;
+    }
 
     void MaybeTransform()
     {
