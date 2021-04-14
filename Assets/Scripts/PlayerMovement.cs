@@ -115,6 +115,13 @@ public class PlayerMovement : MonoBehaviour
             _transformationEmission.rateOverTime = 0f;
         }
 
+        if (!IsGrounded() && _playerTransform != PlayerTransform.Bird)
+        {
+            anim.SetBool("isJumping", true);
+        } else
+        {
+            anim.SetBool("isJumping", false);
+        }
      
         // Maybe transform
         MaybeTransform();
@@ -133,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         else if (_playerTransform == PlayerTransform.Pirate && Input.GetButtonDown("Jump") && IsGrounded())
         {
             Jump();
-        }
+        } 
     }
 
     bool IsGrounded()
@@ -154,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
         if (_intoMoonCounter <= 0 && _playerTransform == PlayerTransform.Pirate && _inMoonLight)
         {
             _playerTransform = PlayerTransform.Bird;
+            anim.SetBool("isGhost", true);
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.5f);
             _rigidBody2d.gravityScale = flightGravity;
 
@@ -168,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
         if (_outOfMoonCounter <= 0 && _playerTransform == PlayerTransform.Bird && !_inMoonLight)
         {
             _playerTransform = PlayerTransform.Pirate;
+            anim.SetBool("isGhost", false);
             _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1.0f);
             _rigidBody2d.gravityScale = normalGravity;
 
