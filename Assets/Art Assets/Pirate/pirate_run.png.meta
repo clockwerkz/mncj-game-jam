@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: 1428c1faa8c51084bbdbcbb76b447596
+guid: af78e5a8dcd01b84eb060203d29a5eed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -943318867982752447
-    second: pirate_idle_0
+      213: 2994184922542060814
+    second: pirate_run_0
   - first:
-      213: 2823641108335528069
-    second: pirate_idle_1
+      213: -2312189180001878532
+    second: pirate_run_1
   - first:
-      213: -3099360065704134146
-    second: pirate_idle_2
+      213: -6591092688910817512
+    second: pirate_run_2
   - first:
-      213: 2519691307991570366
-    second: pirate_idle_3
+      213: 5381674696879780109
+    second: pirate_run_3
   - first:
-      213: -4280075753780664020
-    second: pirate_idle_4
+      213: 1529744631033855055
+    second: pirate_run_4
   - first:
-      213: -3198609495304060153
-    second: pirate_idle_5
-  - first:
-      213: 8890555292880278323
-    second: pirate_idle_6
+      213: -3464225919927001690
+    second: pirate_run_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +86,7 @@ TextureImporter:
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +98,7 @@ TextureImporter:
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +110,7 @@ TextureImporter:
     maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pirate_idle_0
+      name: pirate_run_0
       rect:
         serializedVersion: 2
         x: 0
@@ -138,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 145e6fbcc78a8e2f0800000000000000
-      internalID: -943318867982752447
+      spriteID: e0533fbb25b7d8920800000000000000
+      internalID: 2994184922542060814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_idle_1
+      name: pirate_run_1
       rect:
         serializedVersion: 2
         x: 42
@@ -159,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5888783b0a69f2720800000000000000
-      internalID: 2823641108335528069
+      spriteID: cfd7c78f03479efd0800000000000000
+      internalID: -2312189180001878532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_idle_2
+      name: pirate_run_2
       rect:
         serializedVersion: 2
         x: 84
@@ -180,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef97cacf07cdcf4d0800000000000000
-      internalID: -3099360065704134146
+      spriteID: 817ebcbde1cb784a0800000000000000
+      internalID: -6591092688910817512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_idle_3
+      name: pirate_run_3
       rect:
         serializedVersion: 2
         x: 126
@@ -201,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb71a7c05edb7f220800000000000000
-      internalID: 2519691307991570366
+      spriteID: d013a3c9f9c8faa40800000000000000
+      internalID: 5381674696879780109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_idle_4
+      name: pirate_run_4
       rect:
         serializedVersion: 2
         x: 168
@@ -222,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29242c57cd1a94c0800000000000000
-      internalID: -4280075753780664020
+      spriteID: f4c75d113aeba3510800000000000000
+      internalID: 1529744631033855055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pirate_idle_5
+      name: pirate_run_5
       rect:
         serializedVersion: 2
         x: 210
@@ -243,29 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 703c5396c914c93d0800000000000000
-      internalID: -3198609495304060153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pirate_idle_6
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 42
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33319184fe8916b70800000000000000
-      internalID: 8890555292880278323
+      spriteID: 6addc0d41e89cefc0800000000000000
+      internalID: -3464225919927001690
       vertices: []
       indices: 
       edges: []

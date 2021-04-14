@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 859827250380299403}
   - component: {fileID: 859827250380299401}
   - component: {fileID: 331829021}
+  - component: {fileID: 1919296096}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -106,11 +107,12 @@ MonoBehaviour:
   normalGravity: 5
   flightGravity: 0
   intoMoonDelaySeconds: 0
-  outOfMoonDelaySeconds: 1
+  outOfMoonDelaySeconds: 0.5
   feet: {fileID: 859827250534699055}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1088
+  anim: {fileID: 1919296096}
 --- !u!50 &859827250380299401
 Rigidbody2D:
   serializedVersion: 4
@@ -145,9 +147,28 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: -0.09918451}
+  m_Size: {x: 1, y: 1.198369}
   m_Direction: 0
+--- !u!95 &1919296096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859827250380299402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42be49a22aac5f44cb61005e42ff0604, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &859827250534699054
 GameObject:
   m_ObjectHideFlags: 0

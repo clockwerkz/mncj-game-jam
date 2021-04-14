@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Detection Settings")]
     public Transform feet;
     public LayerMask groundLayer;
+    public Animator anim;
 
     // Components
     private Rigidbody2D _rigidBody2d;
@@ -87,7 +88,23 @@ public class PlayerMovement : MonoBehaviour
         {
             _outOfMoonCounter -= Time.deltaTime;
         }
+        //Handle character facing with scale flipping
+        if (_mx < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        } else if (_mx > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
 
+        //Update Animator boolean values
+        if (Mathf.Abs(_mx) > 0.05)
+        {
+            anim.SetBool("isRunning", true);
+        } else
+        {
+            anim.SetBool("isRunning", false);
+        }
         // Configure transformation particles
         if (_playerTransform == PlayerTransform.Bird && !_inMoonLight)
         {
