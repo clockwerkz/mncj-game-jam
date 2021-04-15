@@ -55829,11 +55829,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 859827250380299403, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
-        type: 3}
-      propertyPath: outOfMoonDelaySeconds
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 859827250380299447, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
         type: 3}
       propertyPath: m_RootOrder
@@ -55842,12 +55837,12 @@ PrefabInstance:
     - target: {fileID: 859827250380299447, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.78
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 859827250380299447, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.37
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 859827250380299447, guid: 835c93fcf511f0b4b9a55f92eeb7a253,
         type: 3}
